@@ -1,0 +1,18 @@
+<div [formGroup]="appForm" class="">
+  <input class="text" formControlName="plan" />
+  <input class="text" formControlName="FirstAmt" />
+
+  <div
+    formArrayName="walletFormArray"
+    *ngFor="let data of appForm.get('walletFormArray').controls; let i = index"
+  >
+    <div [formGroupName]="i">
+      <input class="text" formControlName="feild1" />
+      <input class="text" formControlName="feild2" />
+      <input class="text" formControlName="feild3" />
+      <input class="text" formControlName="feild4" />
+    </div>
+    <button (click)="removeEmployee(i)">Remove</button>
+  </div>
+  <button (click)="addEmployy()">add</button>
+</div>
